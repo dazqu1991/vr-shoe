@@ -1,0 +1,91 @@
+-<!DOCTYPE html>
+-<html>
+-  
+-  <head>
+-    <title>shoe.otfx</title>
+-    <link rel="stylesheet" type="text/css" href="main.css">
+-    <script src="aframe.0.6.1.min.js"></script>
+-    <script src="aframe-animation-component.min.js"></script>
+-    <script src="main.js"></script>
+-  </head>
+-  
+-  <body>
+-    <div id="splash">
+-      <div class="loading"></div>
+-    </div>
+-    
+-    <a-scene fog="color: #50bfe7; far: 0; type: linear;">
+-      <a-assets>
+-        <img id="testjpg" src="assets/test.jpg">
+-        <a-asset-item id="testobj" src="assets/test.obj"></a-asset-item>
+-        <img id="dpng" src="assets/d.png">
+-        <img id="gpng" src="assets/g.png">
+-        <img id="apng" src="assets/a.png">
+-        <img id="bpng" src="assets/b.png">
+-        <img id="cpng" src="assets/c.png">
+-        <img id="shoepng" src="assets/shoe.png">
+-        <a-asset-item id="shoeobj" src="assets/shoe.obj"></a-asset-item>
+-      </a-assets>
+-      
+-      <a-entity id="main-camera-wrapper" position="0 3 4" rotation="0 0 0">
+-        <a-camera id="main-camera" user-height="0" visible="true" wasd-controls="acceleration: 75; easing: 10; enabled: true; fly: false;"
+-        cursor="rayOrigin: mouse;" raycaster="objects: .clickable">
+-          <a-cursor id="fuse-cursor" fuse="true" geometry="radiusInner: 0.02; radiusOuter: 0.03; thetaLength: 360; thetaStart: 90;"
+-          color="#ffffff" opacity="1" repeat="1 1" shader="flat" position="0 0 -1" objects=".clickable"
+-          rotation="0 0 0" scale="1 1 1" visible="true"></a-cursor>
+-          
+-          <a-ring id="fuse-progress" radius-inner="0.02" radius-outer="0.03" theta-length="360"
+-          theta-start="90" color="#ef2e5f" opacity="0" repeat="1 1" shader="flat" position="0 0 -0.999"
+-          rotation="0 0 0" scale="1 1 1" visible="true" class="clickable" animation="delay: 0; dir: normal; dur: 1500; easing: linear; loop: 0; property: geometry.thetaLength; startEvents: fusing; to: 0; from: 360;"
+-          animation__1="delay: 0; dir: normal; dur: 500; easing: linear; loop: 0; property: opacity; startEvents: fusing; to: 1; from: 0;"></a-ring>
+-        </a-camera>
+-      </a-entity>
+-      
+-      <a-sky id="sky" radius="5000" segments-height="20" segments-width="64" color="#072036"
+-      flat-shading="true" opacity="1" repeat="1 1" shader="standard" side="double" position="0 0 0"
+-      rotation="0 0 0" scale="-1 1 1" visible="true"></a-sky>
+-      
+-      <a-plane id="ground" height="5000" width="5000" color="#283c43" metalness="0.5"
+-      opacity="1" repeat="1 1" roughness="1" shader="standard" side="double" position="0 0 0"
+-      rotation="-90 0 0" visible="false"></a-plane>
+-      
+-      <a-light id="point-light-1" color="#ffffff" distance="0" intensity="1"
+-      type="point" light="castShadow: false;" position="0 7 5" visible="true"></a-light>
+-      
+-      <a-light id="ambient-light-1" color="#ffffff" intensity="1" type="ambient"
+-      visible="true"></a-light>
+-      
+-      <a-obj-model id="test" color="#ffffff" metalness="0.5" opacity="1" repeat="1 1"
+-      roughness="1" shader="standard" side="double" material="src: #testjpg;" src="#testobj"
+-      position="0 3 3" rotation="0 180 0" scale="32 32 32" visible="true"></a-obj-model>
+-      
+-      <a-image id="4" height="3" width="4" color="#ffffff" metalness="0.5"
+-      opacity="1" repeat="1 1" roughness="1" shader="standard" side="double" src="#dpng"
+-      position="-1 3 -1" rotation="0 0 0" scale="1 1 1" visible="true"></a-image>
+-      
+-      <a-image id="7" height="3" width="4" color="#ffffff" metalness="0.5" opacity="1"
+-      repeat="1 1" roughness="1" shader="standard" side="double" src="#gpng" position="3.30 3.30 0.30"
+-      rotation="0 -45 0" scale="0.8 0.8 0.8" visible="true"></a-image>
+-      
+-      <a-image id="a" height="3" width="4" color="#ffffff" metalness="0.5" opacity="1"
+-      repeat="1 1" roughness="1" shader="standard" side="double" src="#apng" position="-3.70 4.10 -0.7"
+-      rotation="0 30 0" scale="0.25 0.3 0.3" visible="true" class="clickable"></a-image>
+-      
+-      <a-image id="b" height="3" width="4" color="#ffffff" metalness="0.5" opacity="1"
+-      repeat="1 1" roughness="1" shader="standard" side="double" src="#bpng" position="-3.70 3.30 -0.71"
+-      rotation="0 30 0" scale="0.25 0.3 0.3" visible="true" class="clickable"></a-image>
+-      
+-      <a-image id="c" height="3" width="4" color="#ffffff" metalness="0.5" opacity="1"
+-      repeat="1 1" roughness="1" shader="standard" side="double" src="#cpng" position="-3.70 2.50 -0.69"
+-      rotation="0 30 0" scale="0.25 0.3 0.3" visible="true" class="clickable"></a-image>
+-      
+-      <a-obj-model id="shoe" color="#ffffff" metalness="0" opacity="1" repeat="1 1"
+-      roughness="1" shader="standard" side="double" material="src: #shoepng;" src="#shoeobj"
+-      position="0.60 3.50 0.00" rotation="0 -100 0" scale="0.05 0.05 0.05" visible="true"
+-      animation="delay: 0; dir: normal; dur: 500; easing: easeInQuad; elasticity: 400; loop: 0; property: rotation; startEvents: a-clicked; to: 0 -100 0; "
+-      animation__1="delay: 0; dir: normal; dur: 500; easing: easeInQuad; elasticity: 400; loop: 0; property: rotation; startEvents: b-clicked; to: 0 -100 45; "
+-      animation__2="delay: 0; dir: normal; dur: 500; easing: easeInQuad; elasticity: 400; loop: 0; property: rotation; startEvents: c-clicked; to: 0 -240 0; "></a-obj-model>
+-    </a-scene>
+-  </body>
+-
+-</html>
